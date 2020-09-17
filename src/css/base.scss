@@ -1,7 +1,99 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
 
 body {
   background: $primary-background;
 }
+
+nav {
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  section {
+    display: flex;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-areas:  "booked-trips-card request-trip-card request-trip-card"
+                        "booked-trips-card total-spent-card total-spent-card";
+  text-align: center;
+  
+  .header {
+
+  }
+
+  .section-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-card-body {
+    justify-content: space-around;
+  }
+                        
+  #booked-trips-card {
+    grid-area: booked-trips-card;
+    border-color: black;
+    border-style: solid;
+
+    #booked-trips-body {
+      overflow: scroll;
+    }
+  }
+  
+  #request-trip-card {
+    grid-area: request-trip-card;
+    border-color: black;
+    border-style: solid;
+  
+    #request-trip-body {
+      display: grid;
+      flex-direction: row;
+      grid-template-areas: "calendar-card destinations-card destinations-card";
+    
+      #calendar-card {
+        grid-area: calendar-card;
+        border-color: black;
+        border-style: solid;
+      }
+
+      #destinations-card {
+        border-color: black;
+        border-style: solid;
+        grid-area: destinations-card;
+
+        #desinations-body {
+          display: grid;
+          border-color: black;
+          border-style: solid;
+          grid-template-columns: 1fr 1fr;
+          overflow: scroll;
+        }
+      }
+    }
+  }
+
+  #total-spent-card {
+    grid-area: total-spent-card;
+    border-color: black;
+    border-style: solid;
+    
+    #total-spent-body {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .section-sub-card {
+      border-color: black;
+      border-style: solid;
+    }
+  }
+}
+
+
+
+
