@@ -4,67 +4,72 @@
     <title>Webpack Starter Kit</title>
   </head>
   <body>
-    <nav>
-      <img alt="logo">
-      <h1>Travel Site</h1>
-      <h1>User 1</h1>
-      <img alt="drop-down-arrow">
+    <nav class="nav" id="nav">
+      <section class="nav-section" id="nav-left">
+        <img alt="logo">
+        <h1>Travel Site</h1>
+      </section>
+      <section class="nav-section" id="nav-left">
+        <h1>User 1</h1>
+        <img alt="drop-down-arrow">
+      </section>
     </nav>
     
     <main>
       <section class="section-card" id="booked-trips-card">
-        <article class="section-header" id="booked-trips-header">
+        <article class="header section-header" id="booked-trips-header">
           <h1>Booked Trips</h1>
         </article>
-        <article class="section-body" id="booked-trips-body">
+        <article class="section-card-body" id="booked-trips-body">
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
           <article class="section-sub-card" id="booked-trips-sub-card">
-            <h1>Trip</h1>
+            <h3>Trip</h3>
           </article>
         </article>
       </section>
 
       <section class="section-card" id="request-trip-card">
-        <article class="section-header" id="request-trip-header">
-          <h2>Request Trip</h2>
+        <article class="header section-header" id="request-trip-header">
+          <h1>Request Trip</h1>
         </article>
-        <article class="section-body" id="request-trip-body">
+        <article class="section-card-body" id="request-trip-body">
           <article class="section-sub-card" id="calendar-card">
-            <article class="sub-card-header" id="calendar-header">
+            <article class="header sub-card-header" id="calendar-header">
               <h2>Calendar</h2>
             </article>
             <article class="sub-card-body" id="calendar-body">
               Calendar
             </article>
+            <button class="button" id="reset-button">Reset</button>
           </article>
           <article class="section-sub-card" id="destinations-card">
-            <article class="sub-card-header" id="destinations-header">
+            <article class="header sub-card-header" id="destinations-header">
               <h2>Destinations</h2>
             </article>
             <article class="sub-card-body" id="desinations-body">
@@ -87,19 +92,18 @@
                 desination card
               </article>
             </article>
-            <button class="button" id="reset-button">Reset</button>
             <button class="button" id="request-trip-button">Request Trip!</button>
           </article>
         </article>
       </section>
 
-      <section class="section-card" id="total-spent-section">
-        <article class="section-header" id="total-spent-header">
+      <section class="section-card" id="total-spent-card">
+        <article class="header section-header" id="total-spent-header">
           <h1>Total $ Spent</h1>
         </article>
         <article class="section-card-body" id="total-spent-body">
           <article class="section-sub-card" id="today-card">
-            <article class="sub-card-header" id="today-header">
+            <article class="header sub-card-header" id="today-header">
               <h2>Today</h2>
             </article>
             <article class="sub-card-body" id="today-body">
@@ -107,8 +111,8 @@
             </article>
           </article>
         
-          <article class="sub-card-body" id="all-time-card">
-            <article class="sub-card-header" id="all-time-header">
+          <article class="section-sub-card" id="all-time-card">
+            <article class="header sub-card-header" id="all-time-header">
               <h2>All-Time</h2>
             </article>
             <article class="sub-card-body" id="all-time-body">
