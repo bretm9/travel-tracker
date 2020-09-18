@@ -14,6 +14,7 @@ body {
   font-family: futura-pt, sans-serif;
   font-weight: 300;
   font-style: normal;
+  text-align: center;
 }
 
 nav {
@@ -30,96 +31,112 @@ nav {
 
 main {
   display: grid;
-  grid-template-areas:  "booked-trips-card request-trip-card request-trip-card"
+  grid-template-areas: "booked-trips-card request-trip-card request-trip-card"
                         "booked-trips-card total-spent-card total-spent-card";
-  text-align: center;
-  
-  .header {
+  height: 100vh;
 
-  }
+}
 
-  .section-card {
-    display: flex;
-    flex-direction: column;
-  }
+.section-card {
+  display: flex;
+  flex-direction: column;
+}
 
-  .section-card-body {
-    justify-content: space-around;
-  }
-                        
-  #booked-trips-card {
-    grid-area: booked-trips-card;
-    border-color: $grey;
-    border-style: solid;
+.section-card-body {
+  justify-content: space-around;
+}
 
-    .header {
-      background: $yellow;
-    }
+#booked-trips-card {
+  grid-area: booked-trips-card;
+  border-color: $grey;
+  border-style: solid;
 
-    #booked-trips-body {
-      overflow: scroll;
-    }
-  }
-  
-  #request-trip-card {
-    grid-area: request-trip-card;
-    border-color: $grey;
-    border-style: solid;
-  
-    .header {
-      background: $green;
-    }
+}
 
-    #request-trip-body {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      height: 100%;
-    
-      #calendar-card {
-        border-color: $grey;
-        border-style: solid;
-        
-      }
+#booked-trips-header {
+  background: $yellow;
+}
 
-      #destinations-card {
-        border-color: $grey;
-        border-style: solid;
+#booked-trips-body {
+  overflow: scroll;
+}
 
-        #desinations-body {
-          display: grid;
-          border-color: $grey;
-          border-style: solid;
-          grid-template-columns: 1fr 2fr;
-          overflow: scroll;
-        }
-      }
-    }
-  }
+#request-trip-card {
+  grid-area: request-trip-card;
+  border-color: $grey;
+  border-style: solid;
 
-  #total-spent-card {
-    grid-area: total-spent-card;
-    border-color: $grey;
-    border-style: solid;
-    
+}
 
+#request-trip-header {
+  background: $green;
+}
 
-    .header {
-      background: $pink;
-    }
-    
-    #total-spent-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      height: 100%;
-    }
+#request-trip-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
 
-    .section-sub-card {
-      border-color: $grey;
-      border-style: solid;
-    }
-  }
+}
+
+#calendar-card {
+  border-color: $grey;
+  border-style: solid;
+
+}
+
+#destinations-card {
+  border-color: $grey;
+  border-style: solid;
+
+}
+
+#desinations-body {
+  display: grid;
+  border-color: $grey;
+  border-style: solid;
+  grid-template-columns: 1fr 2fr;
+  overflow: scroll;
 }
 
 
 
+#total-spent-card {
+  grid-area: total-spent-card;
+  border-color: $grey;
+  border-style: solid;
 
+}
+
+
+
+#booked-trips-header {
+  background: $pink;
+}
+
+#total-spent-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+#section-sub-card {
+  border-color: $grey;
+  border-style: solid;
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    grid-template-areas: "booked-trips-card"
+      "request-trip-card"
+      "total-spent-card";
+  }
+
+  #request-trip-body {
+    grid-template-columns: 1fr;
+  }
+
+  #total-spent-body {
+    grid-template-columns: 1fr;
+  }
+}
