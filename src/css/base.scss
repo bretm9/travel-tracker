@@ -15,6 +15,37 @@ body {
   font-weight: 300;
   font-style: normal;
   text-align: center;
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.3em;
+  }
+}
+
+.login-view {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-flex {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
+  }
+  
+  button {
+    margin: auto;
+    margin-top: 5%;
+    width: 52%;
+  }
+
 }
 
 nav {
@@ -110,7 +141,7 @@ main {
 
 
 
-#booked-trips-header {
+#total-spent-header {
   background: $pink;
 }
 
@@ -139,4 +170,8 @@ main {
   #total-spent-body {
     grid-template-columns: 1fr;
   }
+}
+
+.hidden {
+  display: none;
 }
