@@ -5,6 +5,22 @@
     <link rel="stylesheet" href="https://use.typekit.net/auw2kpl.css">
   </head>
   <body>
+
+    <section class="login-view hidden" id="login-view">
+      <article class="login-flex" id="login-grid">
+        <article class="header" id="login-header">
+          <h1>Welcome to Travel Site!</h1>
+          <h3>Login with your email address and password to continue</h3>
+        </article>
+          <input type="text" placeholder="email@adress.com">
+          <input type="text" placeholder="password">
+        <article class="footer hidden" id="login-footer">
+          <h3>Incorrect login. Please try again.</h3>
+        </article>
+      </article>
+
+    </section>
+
     <nav class="nav" id="nav">
       <section class="nav-section" id="nav-left">
         <img alt="logo">
@@ -16,7 +32,7 @@
       </section>
     </nav>
     
-    <main>
+    <main class="main-view">
       <section class="section-card" id="booked-trips-card">
         <article class="header section-header" id="booked-trips-header">
           <h1>Booked Trips</h1>
