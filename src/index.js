@@ -1,10 +1,47 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
+import fetch from './fetch';
+import domUpdates from './dom-updates';
+import Traveler from './traveler'
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+let traveler;
 
-console.log('This is the JavaScript entry file - your code begins here.');
+let userInputUsername = document.querySelector('#login-input-username');
+let userInputPassword = document.querySelector('#login-input-password');
+let loginButton = document.querySelector('.login-button');
+let loginFooter = document.querySelector('#login-footer');
+
+window.addEventListener('load', (event) => {
+// loginButton.addEventListener('click', () => {
+  // if (login(userInputUsername.value, userInputPassword)) {
+    setTraveler();
+    // domUpdates.toggleMainView(loginNode, navNode, mainNode);
+    domUpdates.renderUserTrips(traveler, allDestinations, tripsNode);
+  // }
+});
+
+// function login(username, password) {
+//   let splitUsername = username.split('traveler');
+//   if (splitUsername[0] === `traveler` 
+//     && splitUsername[1] > 0 
+//     && splitUsername[1] <= 50 
+//     && password === 'travel2020'
+//   ) {
+//     this.toggleMainView();
+//     return splitUsername[1];
+//   } else if (splitUsername[0] === 'agent' 
+//       && password === 'travel2020'
+//     ) {
+//     this.toggleMainView();
+//     return splitUsername[0];
+//   }
+//   loginFooter.classList.remove('hidden');
+//   return false;
+// }
+
+// function setTraveler() {
+//   // let userID = userInputUsername.value.replace('traveler', '');
+//   let userID = 1;
+//   // use commented line once login page is implemented
+//   fetch.getTraveler(traveler, userID);
+// }
+
