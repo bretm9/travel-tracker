@@ -5,18 +5,28 @@ import Traveler from './traveler'
 
 let traveler;
 
-let userID = 1;
+let userID = 2;
 
 let userInputUsername = document.querySelector('#login-input-username');
 let userInputPassword = document.querySelector('#login-input-password');
 let loginButton = document.querySelector('.login-button');
 let loginFooter = document.querySelector('#login-footer');
 let bookedTripsBody = document.querySelector('#booked-trips-body');
+let totalSpentBody = document.querySelector('#total-spent-body');
+
+let nodes = {
+  userInputUsername, 
+  userInputPassword,
+  loginButton,
+  loginFooter,
+  bookedTripsBody,
+  totalSpentBody
+}
 
 window.addEventListener('load', (event) => {
 // loginButton.addEventListener('click', () => {
   // if (login(userInputUsername.value, userInputPassword)) {
-    fetcher.getTravelerDestinations(traveler, userID, bookedTripsBody)
+    fetcher.getTravelerDestinations(traveler, userID, bookedTripsBody);
     // domUpdates.toggleMainView(loginNode, navNode, mainNode);
     // domUpdates.renderUserTrips(traveler, allDestinations, tripsNode);
   // }
@@ -41,4 +51,4 @@ window.addEventListener('load', (event) => {
 //   return false;
 // }
 
-export default bookedTripsBody;
+export default nodes;
