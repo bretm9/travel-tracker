@@ -1,3 +1,5 @@
+import bookedTripsBody from './index'
+
 let domUpdates = {
 
   // toggleMainView(loginNode, navNode, mainNode) {
@@ -6,9 +8,9 @@ let domUpdates = {
   //   mainNode.classList.toggle('hidden');
   // },
 
-  renderUserTrips(traveler, allDestinations, tripsNode) {
+  renderUserTrips(traveler, allDestinations) {
     traveler.trips.forEach(trip => {
-      tripsNode.insertAdjacentHTML(`before-end`, 
+      bookedTripsBody.insertAdjacentHTML(`beforeend`, 
         `<p>Destination: ${allDestinations[trip.destinationID - 1].destination}</p>
         <p>Travelers: ${trip.travelers}</p>
         <p>Date: ${trip.date}</p>
@@ -17,3 +19,5 @@ let domUpdates = {
     });
   }
 }
+
+export default domUpdates;
