@@ -7,7 +7,7 @@ chai.use(spies);
 
 describe('domUpdates', () => {
   beforeEach(() => {
-    chai.spy.on(domUpdates, ['renderUserTrips'], () => true)
+    chai.spy.on(domUpdates, ['renderUserTrips', 'renderTotalSpentThisYear'], () => true)
   });
 
   afterEach(() => {
@@ -17,5 +17,10 @@ describe('domUpdates', () => {
   it('should be able to render user trips to the DOM', () => {
     domUpdates.renderUserTrips();
     expect(domUpdates.renderUserTrips).to.have.been.called(1);
+  });
+
+  it('should be able to render user\'s total money spent this year', () => {
+    domUpdates.renderTotalSpentThisYear();
+    expect(domUpdates.renderTotalSpentThisYear).to.have.been.called(1);
   });
 });

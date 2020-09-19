@@ -16,8 +16,8 @@ let fetcher = {
       .catch(err => console.log('Fetch error: ', err))
   },
 
-  getTraveler(traveler) {
-    fetch(`https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/travelers/travelers/1`)
+  getTraveler(traveler, userID) {
+    fetch(`https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/travelers/travelers/${userID}`)
       .then(response => response.json())
       .then(data => {
         traveler = new Traveler(data);
@@ -37,8 +37,9 @@ let fetcher = {
         let userTrips = allTrips.trips.filter(trip => {
           return trip.userID === traveler.id;
         });
+        traveler.allDestinations = allDestinations;
         traveler.trips = userTrips;
-        domUpdates.renderUserTrips(traveler, allDestinations)
+        this.renderAfterFetch(traveler);
       })
       .catch(err => console.log('Fetch error: ', err))
   },
@@ -48,6 +49,11 @@ let fetcher = {
       .then(response => response.json())
       .then(data => allDestinations = data)
       .catch(err => console.log('Fetch error: ', err))
+  },
+
+  renderAfterFetch(traveler) {
+    domUpdates.renderUserTrips(traveler, traveler.allDestinations);
+    domUpdates.renderTotalSpentThisYear(traveler);
   }
 }
 
