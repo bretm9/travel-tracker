@@ -1,21 +1,24 @@
 import './css/base.scss';
-import fetch from './fetch';
+import fetcher from './fetch';
 import domUpdates from './dom-updates';
 import Traveler from './traveler'
 
 let traveler;
 
+let userID = 1;
+
 let userInputUsername = document.querySelector('#login-input-username');
 let userInputPassword = document.querySelector('#login-input-password');
 let loginButton = document.querySelector('.login-button');
 let loginFooter = document.querySelector('#login-footer');
+let bookedTripsBody = document.querySelector('#booked-trips-body');
 
 window.addEventListener('load', (event) => {
 // loginButton.addEventListener('click', () => {
   // if (login(userInputUsername.value, userInputPassword)) {
-    setTraveler();
+    fetcher.getTravelerDestinations(traveler, userID, bookedTripsBody)
     // domUpdates.toggleMainView(loginNode, navNode, mainNode);
-    domUpdates.renderUserTrips(traveler, allDestinations, tripsNode);
+    // domUpdates.renderUserTrips(traveler, allDestinations, tripsNode);
   // }
 });
 
@@ -38,10 +41,4 @@ window.addEventListener('load', (event) => {
 //   return false;
 // }
 
-// function setTraveler() {
-//   // let userID = userInputUsername.value.replace('traveler', '');
-//   let userID = 1;
-//   // use commented line once login page is implemented
-//   fetch.getTraveler(traveler, userID);
-// }
-
+export default bookedTripsBody;

@@ -14,8 +14,23 @@ describe('fetch', () => {
     chai.spy.restore(fetch);
   });
 
-  it('should be able to render user trips to the DOM', () => {
+  it('should be able to get a specific traveler\'s destinations', () => {
+    fetch.getTravelerDestinations();
+    expect(fetch.getTravelerDestinations).to.have.been.called(1);
+  });
+
+  it('should be able to get a traveler and instantiate a new Traveler', () => {
     fetch.getTraveler();
     expect(fetch.getTraveler).to.have.been.called(1);
+  });
+
+  it('should be able to get a travelers trips and set them to a traveler\'s "trips" property', () => {
+    fetch.getUserTrips();
+    expect(fetch.getUserTrips).to.have.been.called(1);
+  });
+
+  it('should be able to get all destinations', () => {
+    fetch.getAllDestinations();
+    expect(fetch.getAllDestinations).to.have.been.called(1);
   });
 });
