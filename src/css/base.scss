@@ -81,7 +81,7 @@ main {
   grid-area: booked-trips-card;
   border-color: $grey;
   border-style: solid;
-
+  overflow: scroll;
 }
 
 #booked-trips-header {
