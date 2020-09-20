@@ -9,6 +9,7 @@ let domUpdates = {
   // },
 
   renderUserTrips(traveler, allDestinations) {
+    nodes.bookedTripsBody.innerHTML = '';
     traveler.trips.forEach(trip => {
       nodes.bookedTripsBody.insertAdjacentHTML(`beforeend`, 
         `<article class="section-sub-card" id="booked-trips-sub-card"></article>
@@ -35,6 +36,9 @@ let domUpdates = {
         </article>`
       );
     });
+  }, 
+  selectionError() {
+    nodes.errorSection.innerHTML = '<h3>Error! Please click a destination and type a correctly formatted date (YYYY/DD/MM)</h3>'
   }
 }
 

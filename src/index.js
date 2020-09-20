@@ -2,6 +2,7 @@ import './css/base.scss';
 import fetcher from './fetch';
 import domUpdates from './dom-updates';
 import Traveler from './traveler'
+import moment from 'moment'
 
 let traveler;
 
@@ -21,6 +22,7 @@ let requestTripButton = document.querySelector('#request-trip-button');
 let startDateInput = document.querySelector('#start-date-input')
 let travelerQuantitySelection = document.querySelector('#traveler-quantity-selection');
 let durationSelection = document.querySelector('#duration-selection');
+let errorSection = document.querySelector('#error-section');
 
 
 let nodes = {
@@ -35,7 +37,8 @@ let nodes = {
   requestTripButton,
   startDateInput,
   travelerQuantitySelection,
-  durationSelection
+  durationSelection,
+  errorSection
 }
 
 window.addEventListener('load', (event) => {
@@ -60,16 +63,16 @@ function selectDestination(event) {
 }
 
 function requestTrip() {
-  // if (this.inputCorrectFormat(selectedDate) && selectedDestination) {
+  if (inputCorrectFormat(startDateInput) && selectedDestination) {
     fetcher.postRequestedTrip(traveler, userID, nodes, selectedDestination);
-  // } else {
-  //   domUpdates.selectionError();
-  // }
+  } else {
+    domUpdates.selectionError();
+  }
 }
 
-// function inputCorrectFormat(selectedDate) {
-
-// }
+function inputCorrectFormat(input) {
+  return moment(input.value, 'YYYY/MM/DD',true).isValid()
+}
 
 // function login(username, password) {
 //   let splitUsername = username.split('traveler');
