@@ -51,13 +51,25 @@ window.addEventListener('click', selectDestination);
 
 // resetButton.addEventListener('click', clearSelection);
 
-// requestTripButton.addEventListener('click', requestTrip);
+requestTripButton.addEventListener('click', requestTrip);
 
 function selectDestination(event) {
   if (event.target.classList.contains('destination-image')) {
     selectedDestination = parseInt(event.target.id);
   }
 }
+
+function requestTrip() {
+  // if (this.inputCorrectFormat(selectedDate) && selectedDestination) {
+    fetcher.postRequestedTrip(traveler, userID, nodes, selectedDestination);
+  // } else {
+  //   domUpdates.selectionError();
+  // }
+}
+
+// function inputCorrectFormat(selectedDate) {
+
+// }
 
 // function login(username, password) {
 //   let splitUsername = username.split('traveler');
