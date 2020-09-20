@@ -9,6 +9,7 @@ let domUpdates = {
   // },
 
   renderUserTrips(traveler, allDestinations) {
+    nodes.bookedTripsBody.innerHTML = '';
     traveler.trips.forEach(trip => {
       nodes.bookedTripsBody.insertAdjacentHTML(`beforeend`, 
         `<article class="section-sub-card" id="booked-trips-sub-card"></article>
