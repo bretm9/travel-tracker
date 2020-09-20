@@ -2,6 +2,7 @@
 <html lang="en-US">
   <head>
     <title>Webpack Starter Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/auw2kpl.css">
   </head>
   <body>
@@ -24,12 +25,12 @@
 
     <nav class="nav" id="nav">
       <section class="nav-section" id="nav-left">
-        <img alt="logo">
         <h1>Travel Site</h1>
       </section>
-      <section class="nav-section" id="nav-left">
-        <h1>User 1</h1>
-        <img alt="drop-down-arrow">
+      <section>
+        <h1>Welcome </h1>
+      </section>
+      <section class="nav-section" id="total-spent-body">
       </section>
     </nav>
     
@@ -47,49 +48,25 @@
           <h1>Request Trip</h1>
         </article>
         <article class="section-card-body" id="request-trip-body">
-          <article class="section-sub-card" id="calendar-card">
-            <article class="header sub-card-header" id="calendar-header">
-              <h2>Calendar</h2>
-            </article>
-            <article class="sub-card-body" id="calendar-body">
-              Calendar
-            </article>
-            <button class="button" id="reset-button">Reset</button>
-          </article>
           <article class="section-sub-card" id="destinations-card">
             <article class="header sub-card-header" id="destinations-header">
               <h2>Destinations</h2>
             </article>
             <article class="sub-card-body" id="desinations-body">
-              <article class="sub-sub-card" id="desinations-sub-card">
-                desination card
-              </article>
-              <article class="sub-sub-card" id="desinations-sub-card">
-                desination card
-              </article>
-              <article class="sub-sub-card" id="desinations-sub-card">
-                desination card
-              </article>
-              <article class="sub-sub-card" id="desinations-sub-card">
-                desination card
-              </article>
-              <article class="sub-sub-card" id="desinations-sub-card">
-                desination card
-              </article>
-              <article class="sub-sub-card" id="desinations-sub-card">
-                desination card
-              </article>
             </article>
-            <button class="button" id="request-trip-button">Request Trip!</button>
+            <article class="section-card-footer" id="destinations-footer">
+              <h3>Start Date:</h3>
+              <h3>End Date:</h3>
+            </article>
+            <article class="section-card-footer" id="destinations-footer">
+              <input class="date-input" id="start-date-input" placeholder="YYYY/DD/MM">
+              <input class="date-input" id="start-date-input" placeholder="YYYY/DD/MM">
+            </article>
+            <article class="section-card-footer" id="destinations-footer">
+              <button class="button" id="reset-button">Reset</button>
+              <button class="button" id="request-trip-button">Request Trip!</button>
+            </article>
           </article>
-        </article>
-      </section>
-
-      <section class="section-card" id="total-spent-card">
-        <article class="header section-header" id="total-spent-header">
-          <h1>Total $ Spent</h1>
-        </article>
-        <article class="section-card-body" id="total-spent-body">
         </article>
       </section>
     </main>    

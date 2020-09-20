@@ -13,6 +13,7 @@ let loginButton = document.querySelector('.login-button');
 let loginFooter = document.querySelector('#login-footer');
 let bookedTripsBody = document.querySelector('#booked-trips-body');
 let totalSpentBody = document.querySelector('#total-spent-body');
+let destinationsBody = document.querySelector('#desinations-body');
 
 let nodes = {
   userInputUsername, 
@@ -20,7 +21,8 @@ let nodes = {
   loginButton,
   loginFooter,
   bookedTripsBody,
-  totalSpentBody
+  totalSpentBody,
+  destinationsBody
 }
 
 window.addEventListener('load', (event) => {
