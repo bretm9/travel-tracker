@@ -35,6 +35,9 @@ let domUpdates = {
         </article>`
       );
     });
+  }, 
+  selectionError() {
+    nodes.errorSection.innerHTML = '<h3>Error! Please click a destination and type a correctly formatted date (YYYY/DD/MM)</h3>'
   }
 }
 
