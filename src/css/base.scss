@@ -172,8 +172,18 @@ main {
 #destinations-selections {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
   background: $purple;
   height: 3em;
+}
+
+#error-section {
+  text-align: center;
+  background: $purple;
+  height: 2em;
+  grid-row: 2;
+  grid-column: 1 / 4;
 }
 
 #destinations-footer {
