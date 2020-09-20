@@ -9,6 +9,7 @@ $grey: #282a36;
 $white: #FBFEFF;
 
 body {
+  margin: 0;
   background: $black;
   color: #FBFEFF;
   font-family: futura-pt, sans-serif;
@@ -51,21 +52,41 @@ body {
 nav {
   border-color: $black;
   border-style: solid;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  padding-left: 3em;
+  padding-right: 3em;
+  background: $grey;
+  // font-size: 1.2vw;
+}
 
-  section {
-    display: flex;
-  }
+#nav-left {
+  text-align: left;
+}
+
+#total-spent-body {
+  text-align: right;
 }
 
 main {
   display: grid;
-  grid-template-areas: "booked-trips-card request-trip-card request-trip-card"
-                        "booked-trips-card total-spent-card total-spent-card";
-  height: 100vh;
+  grid-template-areas: "booked-trips-card request-trip-card request-trip-card";
+  height: 90.5vh;
+  margin: 0;
+  padding: 0;
 
+  button {
+    margin: auto;
+    margin-top: 5%;
+    height: 2em;
+    width: 100%;
+  }
+}
+
+.header {
+  border-color: $grey;
+  border-style: solid;
 }
 
 .section-card {
@@ -79,13 +100,13 @@ main {
 
 #booked-trips-card {
   grid-area: booked-trips-card;
-  border-color: $grey;
-  border-style: solid;
   overflow: scroll;
+  width: 20em;
 }
 
 #booked-trips-header {
-  background: $yellow;
+  background: $blue;
+  height: 5em;
 }
 
 #booked-trips-body {
@@ -94,61 +115,68 @@ main {
 
 #request-trip-card {
   grid-area: request-trip-card;
-  border-color: $grey;
-  border-style: solid;
-
 }
 
 #request-trip-header {
-  background: $green;
+  background: $yellow;
+  height: 5em;
 }
 
-#request-trip-body {
+#request-trip-footer{
   display: grid;
   grid-template-columns: 1fr 2fr;
-  height: 100%;
-
-}
-
-#calendar-card {
-  border-color: $grey;
-  border-style: solid;
-
 }
 
 #destinations-card {
   border-color: $grey;
   border-style: solid;
+}
 
+#reset-button {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2em;
+  color: $white;
+  background-color: $pink;
+  border: solid;
+  border-color: $purple;
+}
+
+#request-trip-button {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2em;
+  color: $white;
+  background-color: $green;
+  border: solid;
+  border-color: $purple;
 }
 
 #desinations-body {
   display: grid;
-  border-color: $grey;
-  border-style: solid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   overflow: scroll;
+  height: 51vh;
+
+  img {
+    width: 100%;
+  }
 }
 
-
-
-#total-spent-card {
-  grid-area: total-spent-card;
-  border-color: $grey;
-  border-style: solid;
-
+#destinations-header {
+  background: $purple;
 }
 
-
-
-#total-spent-header {
-  background: $pink;
-}
-
-#total-spent-body {
+#destinations-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100%;
+  background: $purple;
+
+  input {
+    height: 2em;
+  }
 }
 
 #section-sub-card {
@@ -156,22 +184,33 @@ main {
   border-style: solid;
 }
 
+.hidden {
+  display: none;
+}
+
 @media only screen and (max-width: 700px) {
+
+  nav {
+    font-size: .6em;
+  }
+
   main {
-    grid-template-areas: "booked-trips-card"
-      "request-trip-card"
-      "total-spent-card";
+    grid-template-areas: 
+      "booked-trips-card"
+      "request-trip-card";
+      height: auto;
+  }
+
+  #booked-trips-card {
+    width: 100%;
+    height: 30em;
   }
 
   #request-trip-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
   }
 
-  #total-spent-body {
-    grid-template-columns: 1fr;
+  #desinations-body {
+    height: 50em;
   }
-}
-
-.hidden {
-  display: none;
 }
