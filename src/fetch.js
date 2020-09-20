@@ -54,6 +54,7 @@ let fetcher = {
   renderAfterFetch(traveler) {
     domUpdates.renderUserTrips(traveler, traveler.allDestinations);
     domUpdates.renderTotalSpentThisYear(traveler);
+    domUpdates.renderDesinationCards(traveler);
   }
 }
 
