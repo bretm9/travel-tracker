@@ -169,6 +169,13 @@ main {
   background: $purple;
 }
 
+#destinations-selections {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: $purple;
+  height: 3em;
+}
+
 #destinations-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;

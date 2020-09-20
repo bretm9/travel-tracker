@@ -55,6 +55,40 @@ let fetcher = {
     domUpdates.renderUserTrips(traveler, traveler.allDestinations);
     domUpdates.renderTotalSpentThisYear(traveler);
     domUpdates.renderDesinationCards(traveler);
+  },
+
+  postRequestedTrip(traveler, userID, nodes, selectedDestination) {
+    let allTrips;
+    fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips')
+      .then(response => response.json())
+      .then(data => {
+        allTrips = data;
+      })
+      .then(() => {
+        let init = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: (allTrips.trips.length + 1), 
+            userID: userID, 
+            destinationID: selectedDestination, 
+            travelers: parseInt(nodes.travelerQuantitySelection.value),
+            date: nodes.startDateInput.value,
+            duration: parseInt(nodes.durationSelection.value), 
+            status: 'pending', 
+            suggestedActivities: []
+          })
+        };
+        fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips', init)
+          .then(response => response.json())
+          .then(() => {
+            this.getTravelerDestinations(traveler, userID)
+          })
+          .catch(err => console.log('Fetch error: ', err))
+      })
+      .catch(err => console.log('Fetch error: ', err))
   }
 }
 
