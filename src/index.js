@@ -22,6 +22,7 @@ let requestTripButton = document.querySelector('#request-trip-button');
 let startDateInput = document.querySelector('#start-date-input')
 let travelerQuantitySelection = document.querySelector('#traveler-quantity-selection');
 let durationSelection = document.querySelector('#duration-selection');
+let errorSection = document.querySelector('#error-section');
 
 
 let nodes = {
@@ -36,7 +37,8 @@ let nodes = {
   requestTripButton,
   startDateInput,
   travelerQuantitySelection,
-  durationSelection
+  durationSelection,
+  errorSection
 }
 
 window.addEventListener('load', (event) => {
@@ -69,7 +71,7 @@ function requestTrip() {
 }
 
 function inputCorrectFormat(input) {
-  return moment(input.value, 'YYYY/DD/MM',true).isValid()
+  return moment(input.value, 'YYYY/MM/DD',true).isValid()
 }
 
 // function login(username, password) {
