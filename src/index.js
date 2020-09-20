@@ -2,6 +2,7 @@ import './css/base.scss';
 import fetcher from './fetch';
 import domUpdates from './dom-updates';
 import Traveler from './traveler'
+import moment from 'moment'
 
 let traveler;
 
@@ -60,16 +61,16 @@ function selectDestination(event) {
 }
 
 function requestTrip() {
-  // if (this.inputCorrectFormat(selectedDate) && selectedDestination) {
+  if (inputCorrectFormat(startDateInput) && selectedDestination) {
     fetcher.postRequestedTrip(traveler, userID, nodes, selectedDestination);
-  // } else {
-  //   domUpdates.selectionError();
-  // }
+  } else {
+    domUpdates.selectionError();
+  }
 }
 
-// function inputCorrectFormat(selectedDate) {
-
-// }
+function inputCorrectFormat(input) {
+  return moment(input.value, 'YYYY/DD/MM',true).isValid()
+}
 
 // function login(username, password) {
 //   let splitUsername = username.split('traveler');
