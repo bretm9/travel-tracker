@@ -16,15 +16,25 @@ let domUpdates = {
         <p>Travelers: ${trip.travelers}</p>
         <p>Date: ${trip.date}</p>
         <p>Status: ${trip.status}</p>
+        <hr>
       </article>`
       );
     });
   },
 
   renderTotalSpentThisYear(traveler) {
-    nodes.totalSpentBody.insertAdjacentHTML('beforeend', 
-      `<h3>You have spent $${traveler.getTotalSpentThisYear()} this year.</h3>`
-      )
+    nodes.totalSpentBody.innerHTML = `<h1>Total spent this year: $${traveler.getTotalSpentThisYear()}</h1>`;
+  },
+
+  renderDesinationCards(traveler) {
+    traveler.allDestinations.forEach(destination => {
+      nodes.destinationsBody.insertAdjacentHTML('beforeend',
+        `<article class="sub-sub-card" id="desinations-sub-card">
+          <h3>${destination.destination}</h3>
+          <img src="${destination.image}" alt="${destination.alt}">
+        </article>`
+      );
+    });
   }
 }
 
