@@ -2,11 +2,11 @@ import nodes from './index'
 
 let domUpdates = {
 
-  // toggleMainView(loginNode, navNode, mainNode) {
-  //   loginNode.classList.toggle('hidden');
-  //   navNode.classList.toggle('hidden');
-  //   mainNode.classList.toggle('hidden');
-  // },
+  toggleMainView() {
+    nodes.loginView.classList.toggle('hidden');
+    nodes.nav.classList.toggle('hidden');
+    nodes.mainView.classList.toggle('hidden');
+  },
 
   renderUserTrips(traveler, allDestinations) {
     nodes.bookedTripsBody.innerHTML = '';
@@ -37,6 +37,7 @@ let domUpdates = {
       );
     });
   }, 
+  
   selectionError() {
     nodes.errorSection.innerHTML = '<h3>Error! Please click a destination and type a correctly formatted date (YYYY/DD/MM)</h3>'
   }

@@ -12,7 +12,8 @@ describe('fetch', () => {
       'getTraveler',
       'getUserTrips',
       'getAllDestinations',
-      'renderAfterFetch'
+      'renderAfterFetch',
+      'postRequestedTrip'
     ], () => true)
   });
   
@@ -41,6 +42,11 @@ describe('fetch', () => {
   });
 
   it('should invoke domUpdates renders after fetching', () => {
+    fetcher.renderAfterFetch();
+    expect(fetcher.renderAfterFetch).to.have.been.called(1);
+  });
+
+  it('should post a requested trip to the API', () => {
     fetcher.renderAfterFetch();
     expect(fetcher.renderAfterFetch).to.have.been.called(1);
   });
