@@ -1,29 +1,31 @@
 import './css/base.scss';
+import './css/booked-trips.scss';
+import './css/login.scss';
+import './css/mobile.scss';
+import './css/nav.scss';
+import './css/request-trips.scss';
+
 import fetcher from './fetch';
 import domUpdates from './dom-updates';
-import Traveler from './traveler'
-import moment from 'moment'
+import Traveler from './traveler';
+import moment from 'moment';
 
-let traveler, userID;
-
-let selectedDestination;
-
-let userInputUsername = document.querySelector('#login-input-username');
-let userInputPassword = document.querySelector('#login-input-password');
-let loginView = document.querySelector('#login-view')
-let loginButton = document.querySelector('.login-button');
-let loginFooter = document.querySelector('#login-footer');
-let nav = document.querySelector('#nav');
-let mainView = document.querySelector('#main-view');
-let bookedTripsBody = document.querySelector('#booked-trips-body');
-let totalSpentBody = document.querySelector('#total-spent-body');
-let destinationsBody = document.querySelector('#desinations-body');
-let resetButton = document.querySelector('#reset-button');
-let requestTripButton = document.querySelector('#request-trip-button');
-let startDateInput = document.querySelector('#start-date-input')
-let travelerQuantitySelection = document.querySelector('#traveler-quantity-selection');
-let durationSelection = document.querySelector('#duration-selection');
-let errorSection = document.querySelector('#error-section');
+const userInputUsername = document.querySelector('#login-input-username');
+const userInputPassword = document.querySelector('#login-input-password');
+const loginView = document.querySelector('#login-view')
+const loginButton = document.querySelector('.login-button');
+const loginFooter = document.querySelector('#login-footer');
+const nav = document.querySelector('#nav');
+const mainView = document.querySelector('#main-view');
+const bookedTripsBody = document.querySelector('#booked-trips-body');
+const totalSpentBody = document.querySelector('#total-spent-body');
+const destinationsBody = document.querySelector('#desinations-body');
+const resetButton = document.querySelector('#reset-button');
+const requestTripButton = document.querySelector('#request-trip-button');
+const startDateInput = document.querySelector('#start-date-input')
+const travelerQuantitySelection = document.querySelector('#traveler-quantity-selection');
+const durationSelection = document.querySelector('#duration-selection');
+const errorSection = document.querySelector('#error-section');
 
 let nodes = {
   userInputUsername, 
@@ -43,6 +45,8 @@ let nodes = {
   durationSelection,
   errorSection
 }
+
+let traveler, userID, selectedDestination;
 
 // Accessibility branch eventListener:
 // window.addEventListener('load', (event) => {
