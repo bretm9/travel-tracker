@@ -7,7 +7,6 @@ import './css/request-trips.scss';
 
 import fetcher from './fetch';
 import domUpdates from './dom-updates';
-import Traveler from './traveler';
 import moment from 'moment';
 
 const userInputUsername = document.querySelector('#login-input-username');
@@ -50,7 +49,7 @@ let traveler, userID, selectedDestination;
 
 // Accessibility branch eventListener:
 // window.addEventListener('load', (event) => {
-  // userID = 2;
+//   userID = 2;
 //   fetcher.getTravelerDestinations(traveler, userID, bookedTripsBody);
 // }
 
@@ -84,7 +83,7 @@ function requestTrip() {
 }
 
 function inputCorrectFormat(input) {
-  return moment(input.value, 'YYYY/MM/DD',true).isValid()
+  return moment(input.value, 'YYYY/MM/DD', true).isValid()
 }
 
 function login(username, password) {
