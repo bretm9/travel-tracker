@@ -78,6 +78,6 @@ describe('Traveler', () => {
   });
 
   it('should be able to get total money spent this year', () => {
-    expect(traveler1.getTotalSpentThisYear()).to.equal(30);
+    expect(traveler1.getTotalSpentThisYear()).to.equal(33);
   });
 });
