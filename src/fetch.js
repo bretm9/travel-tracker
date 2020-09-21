@@ -47,7 +47,9 @@ let fetcher = {
   getAllDestinations(allDestinations) {
     fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/destinations/destinations')
       .then(response => response.json())
-      .then(data => allDestinations = data)
+      .then(data => {
+        allDestinations = data
+      })
       .catch(err => console.log('Fetch error: ', err))
   },
 
@@ -72,7 +74,7 @@ let fetcher = {
           },
           body: JSON.stringify({
             id: (allTrips.trips.length + 1), 
-            userID: userID, 
+            userID, 
             destinationID: selectedDestination, 
             travelers: parseInt(nodes.travelerQuantitySelection.value),
             date: nodes.startDateInput.value,

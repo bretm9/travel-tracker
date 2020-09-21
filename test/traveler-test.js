@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 import Traveler from '../src/traveler';
 
-let traveler1Data, destinations, traveler1;
+let traveler1Data, traveler1;
 
 describe('Traveler', () => {
   beforeEach(() => {
