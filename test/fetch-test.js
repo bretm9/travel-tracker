@@ -36,11 +36,6 @@ describe('fetch', () => {
     expect(fetcher.getUserTrips).to.have.been.called(1);
   });
 
-  it('should be able to get all destinations', () => {
-    fetcher.getAllDestinations();
-    expect(fetcher.getAllDestinations).to.have.been.called(1);
-  });
-
   it('should invoke domUpdates renders after fetching', () => {
     fetcher.renderAfterFetch();
     expect(fetcher.renderAfterFetch).to.have.been.called(1);

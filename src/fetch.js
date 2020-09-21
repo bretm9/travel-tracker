@@ -44,15 +44,6 @@ let fetcher = {
       .catch(err => console.log('Fetch error: ', err))
   },
 
-  getAllDestinations(allDestinations) {
-    fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/destinations/destinations')
-      .then(response => response.json())
-      .then(data => {
-        allDestinations = data
-      })
-      .catch(err => console.log('Fetch error: ', err))
-  },
-
   renderAfterFetch(traveler) {
     domUpdates.renderUserTrips(traveler, traveler.allDestinations);
     domUpdates.renderTotalSpentThisYear(traveler);
