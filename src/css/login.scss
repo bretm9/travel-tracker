@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+.login-view {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-flex {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
+  }
+  
+  button {
+    margin: auto;
+    margin-top: 5%;
+    width: 52%;
+  }
+
+}

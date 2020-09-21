@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+nav {
+  border-color: $black;
+  border-style: solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  padding-left: 3em;
+  padding-right: 3em;
+  background: $grey;
+  // font-size: 1.2vw;
+}
+
+#nav-left {
+  text-align: left;
+}
+
+#total-spent-body {
+  text-align: right;
+}

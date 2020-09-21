@@ -1,0 +1,99 @@
+@import "./variables.scss";
+
+#booked-trips-card {
+  grid-area: booked-trips-card;
+  overflow: scroll;
+  width: 20em;
+}
+
+#booked-trips-header {
+  background: $blue;
+  height: 5em;
+}
+
+#booked-trips-body {
+  overflow: scroll;
+}
+
+#request-trip-card {
+  grid-area: request-trip-card;
+}
+
+#request-trip-header {
+  background: $yellow;
+  height: 5em;
+}
+
+#request-trip-footer{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#destinations-card {
+  border-color: $grey;
+  border-style: solid;
+}
+
+#reset-button {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2em;
+  color: $white;
+  background-color: $pink;
+  border: solid;
+  border-color: $purple;
+}
+
+#request-trip-button {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 2em;
+  color: $white;
+  background-color: $green;
+  border: solid;
+  border-color: $purple;
+}
+
+#desinations-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+  height: 51vh;
+
+  img {
+    width: 100%;
+  }
+}
+
+#destinations-header {
+  background: $purple;
+}
+
+#destinations-selections {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  background: $purple;
+  height: 3em;
+}
+
+#error-section {
+  text-align: center;
+  background: $purple;
+  height: 2em;
+  grid-row: 2;
+  grid-column: 1 / 4;
+}
+
+#destinations-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: $purple;
+
+  input {
+    height: 2em;
+  }
+}
