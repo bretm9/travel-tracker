@@ -18,7 +18,7 @@ class Traveler {
       });
       let totalFlightCost = currentTrip.travelers * currentDestination.estimatedFlightCostPerPerson;
       let totalLodgingCost = currentTrip.duration * currentDestination.estimatedLodgingCostPerDay;
-      return totalSpent + (totalFlightCost + totalLodgingCost);
+      return totalSpent + ((totalFlightCost + totalLodgingCost) * 1.1);
     }, 0);
   }
 }
