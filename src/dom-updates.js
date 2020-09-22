@@ -32,14 +32,18 @@ let domUpdates = {
       nodes.destinationsBody.insertAdjacentHTML('beforeend',
         `<article class="sub-sub-card" id="desinations-sub-card">
           <h3>${destination.destination}</h3>
-          <img class="destination-image" id="${destination.id}"src="${destination.image}" alt="${destination.alt}">
+          <input type="image" class="destination-image" id="${destination.id}" src="${destination.image}" alt="${destination.alt}"/>
         </article>`
       );
     });
   }, 
+
+  selectionSuccess() {
+    nodes.errorSection.innerHTML = '<h3>You successfully booked your trip (See the Booked Trips Section)</h3>'
+  },
   
   selectionError() {
-    nodes.errorSection.innerHTML = '<h3>Error! Please click a destination and type a correctly formatted date (YYYY/DD/MM)</h3>'
+    nodes.errorSection.innerHTML = '<h3>Error! Please select a destination and type a date (YYYY/DD/MM)</h3>'
   }
 }
 
