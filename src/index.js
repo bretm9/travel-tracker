@@ -19,7 +19,6 @@ const mainView = document.querySelector('#main-view');
 const bookedTripsBody = document.querySelector('#booked-trips-body');
 const totalSpentBody = document.querySelector('#total-spent-body');
 const destinationsBody = document.querySelector('#desinations-body');
-const resetButton = document.querySelector('#reset-button');
 const requestTripButton = document.querySelector('#request-trip-button');
 const startDateInput = document.querySelector('#start-date-input')
 const travelerQuantitySelection = document.querySelector('#traveler-quantity-selection');
@@ -37,7 +36,6 @@ let nodes = {
   bookedTripsBody,
   totalSpentBody,
   destinationsBody,
-  resetButton,
   requestTripButton,
   startDateInput,
   travelerQuantitySelection,
@@ -48,23 +46,21 @@ let nodes = {
 let traveler, userID, selectedDestination;
 
 // Accessibility branch eventListener:
-// window.addEventListener('load', (event) => {
-//   userID = 2;
-//   fetcher.getTravelerDestinations(traveler, userID, bookedTripsBody);
-// }
-
-loginButton.addEventListener('click', () => {
-  if (login(userInputUsername.value, userInputPassword.value)) {
-    fetcher.getTravelerDestinations(traveler, userID, bookedTripsBody);
-    domUpdates.toggleMainView();
-  } else {
-    loginFooter.classList.remove('hidden');
-  }
+window.addEventListener('load', (event) => {
+  userID = 2;
+  fetcher.getTravelerDestinations(traveler, userID, domUpdates);
 });
 
-window.addEventListener('click', selectDestination);
+// loginButton.addEventListener('click', () => {
+//   if (login(userInputUsername.value, userInputPassword.value)) {
+//     fetcher.getTravelerDestinations(traveler, userID, domUpdates);
+//     domUpdates.toggleMainView();
+//   } else {
+//     loginFooter.classList.remove('hidden');
+//   }
+// });
 
-// resetButton.addEventListener('click', clearSelection);
+window.addEventListener('click', selectDestination);
 
 requestTripButton.addEventListener('click', requestTrip);
 
@@ -77,6 +73,7 @@ function selectDestination(event) {
 function requestTrip() {
   if (inputCorrectFormat(startDateInput) && selectedDestination) {
     fetcher.postRequestedTrip(traveler, userID, nodes, selectedDestination);
+    domUpdates.selectionSuccess()
   } else {
     domUpdates.selectionError();
   }

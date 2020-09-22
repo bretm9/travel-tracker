@@ -19,17 +19,6 @@
   border-style: solid;
 }
 
-#reset-button {
-  font-family: futura-pt, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 2em;
-  color: $white;
-  background-color: $pink;
-  border: solid;
-  border-color: $purple;
-}
-
 #request-trip-button {
   font-family: futura-pt, sans-serif;
   font-weight: 300;
@@ -43,12 +32,22 @@
 
 #desinations-body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3%;
   overflow: scroll;
-  height: 51vh;
+  height: 48vh;
+  color: $white;
 
-  img {
+  article {
+    border-style: solid;
+    border-width: thin;
+    border-color: $grey;
+  }
+
+  input {
     width: 100%;
+    height: 15vw;
+    object-fit: cover;
   }
 }
 
@@ -60,6 +59,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-gap: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
 
   background: $purple;
   height: 3em;
@@ -75,10 +77,9 @@
 
 #destinations-footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   background: $purple;
 
-  input {
-    height: 2em;
+  button {
+    grid-column: 1/3;
   }
 }
