@@ -13,8 +13,6 @@ describe('Traveler', () => {
       "travelerType": "relaxer"
     }
 
-    traveler1 = new Traveler(traveler1Data);
-
     tripsData = [
       {
         id: 1,
@@ -28,11 +26,21 @@ describe('Traveler', () => {
       },
       {
         id: 2,
-        userID: 3,
+        userID: 1,
         destinationID: 1,
         travelers: 3,
-        date: "2020/05/06",
+        date: "2020/05/04",
         duration: 1,
+        status: "pending",
+        suggestedActivities: []
+      },
+      {
+        id: 3,
+        userID: 2,
+        destinationID: 1,
+        travelers: 5,
+        date: "2020/05/06",
+        duration: 2,
         status: "pending",
         suggestedActivities: []
       }
@@ -55,7 +63,11 @@ describe('Traveler', () => {
         "image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "alt": "city with boats on the water during the day time"
       }
-    ]
+    ];
+
+    traveler1 = new Traveler(traveler1Data);
+
+    traveler1.getUserTrips(tripsData, allDestinations)
   });
 
   it('should be a function', () => {
@@ -83,8 +95,12 @@ describe('Traveler', () => {
   });
 
   it('should be able to get user trips', () => {
-
     traveler1.getUserTrips(tripsData, allDestinations)
-    expect(traveler1.trips).to.deep.equal([tripsData[0]]);
+    expect(traveler1.trips).to.deep.equal([tripsData[0],tripsData[1]]);
+  });
+
+  it('should be able to organize trips by date', () => {
+    traveler1.organizeTripsByDate()
+    expect(traveler1.trips[0]).to.deep.equal(tripsData[1]);
   });
 });

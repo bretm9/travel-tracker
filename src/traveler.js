@@ -20,6 +20,17 @@ class Traveler {
     return Number(rawTotalSpent).toFixed(2);
   }
 
+  organizeTripsByDate() {
+    this.trips.sort((tripA, tripB) => {
+      let tripAComparison = 0;
+      let tripBComparison = 1;
+      if (moment(tripB.date, "YYYY-MM-DD").isBefore(tripA.date)) {
+        tripAComparison = 2;
+      }
+      return tripAComparison - tripBComparison;
+    });
+  }
+
   getUserTrips(allTrips, allDestinations) {
     this.trips = allTrips.filter(trip => {
       return trip.userID === this.id;
