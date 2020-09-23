@@ -34,6 +34,7 @@ let domUpdates = {
   },
 
   renderDesinationCards(traveler) {
+    nodes.destinationsBody.innerHTML = '';
     traveler.allDestinations.forEach(destination => {
       nodes.destinationsBody.insertAdjacentHTML('beforeend',
         `<article class="sub-sub-card" id="desinations-sub-card">
