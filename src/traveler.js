@@ -24,7 +24,7 @@ class Traveler {
     this.trips.sort((tripA, tripB) => {
       let tripAComparison = 0;
       let tripBComparison = 1;
-      if (moment(tripB.date, "YYYY-MM-DD").isBefore(tripA.date)) {
+      if (moment(tripB.date, "YYYY-MM-DD").isBefore(moment(tripA.date, "YYYY-MM-DD"), 'day')) {
         tripAComparison = 2;
       }
       return tripAComparison - tripBComparison;
