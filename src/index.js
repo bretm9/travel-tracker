@@ -19,6 +19,7 @@ const mainView = document.querySelector('#main-view');
 const bookedTripsBody = document.querySelector('#booked-trips-body');
 const totalSpentBody = document.querySelector('#total-spent-body');
 const destinationsBody = document.querySelector('#desinations-body');
+const checkPriceButton = document.querySelector('#check-price-button')
 const requestTripButton = document.querySelector('#request-trip-button');
 const startDateInput = document.querySelector('#start-date-input')
 const travelerQuantitySelection = document.querySelector('#traveler-quantity-selection');
@@ -43,13 +44,18 @@ let nodes = {
   errorSection
 }
 
-let traveler, userID, selectedDestination;
+let traveler, userID, selectedDestination, indexDestinations;
 
 // Accessibility branch eventListener:
 window.addEventListener('load', (event) => {
   userID = 2;
   fetcher.getTravelerDestinations(traveler, userID, domUpdates);
 });
+
+checkPriceButton.addEventListener('click', () => {
+  selectTrip();
+})
+
 
 // loginButton.addEventListener('click', () => {
 //   if (login(userInputUsername.value, userInputPassword.value)) {
@@ -70,6 +76,14 @@ function selectDestination(event) {
   }
 }
 
+function selectTrip() {
+  if (inputCorrectFormat(startDateInput) && selectedDestination) {
+    fetcher.getselectedTrip(nodes, userID, selectedDestination)
+  } else {
+    domUpdates.selectionError();
+  }
+}
+
 function requestTrip() {
   if (inputCorrectFormat(startDateInput) && selectedDestination) {
     fetcher.postRequestedTrip(traveler, userID, nodes, selectedDestination);
@@ -85,7 +99,6 @@ function inputCorrectFormat(input) {
 
 function login(username, password) {
   let splitUsername = username.split('traveler');
-  console.log(splitUsername)
   if (splitUsername[0] === ''
     && parseInt(splitUsername[1]) > 0 
     && parseInt(splitUsername[1]) <= 50 
@@ -93,10 +106,6 @@ function login(username, password) {
   ) {
     userID = parseInt(splitUsername[1]);
     return true;
-  // } else if (splitUsername[0] === 'agent' 
-  //     && password === 'travel2020'
-  //   ) {
-  //   // return true;
   }
   loginFooter.classList.remove('hidden');
   return false;
