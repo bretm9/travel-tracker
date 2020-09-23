@@ -10,17 +10,23 @@ let domUpdates = {
 
   renderUserTrips(traveler, allDestinations) {
     nodes.bookedTripsBody.innerHTML = '';
+    traveler.organizeTripsByDate()
     traveler.trips.forEach(trip => {
       nodes.bookedTripsBody.insertAdjacentHTML(`beforeend`, 
         `<article class="section-sub-card" id="booked-trips-sub-card"></article>
-          <p>Destination: ${allDestinations[trip.destinationID - 1].destination}</p>
+          <p>Destination: ${allDestinations.instantiations[trip.destinationID - 1].destination}</p>
           <p>Travelers: ${trip.travelers}</p>
           <p>Date: ${trip.date}</p>
           <p>Status: ${trip.status}</p>
+          <p>Cost: $${trip.tripCost}
           <hr>
         </article>`
       );
     });
+  },
+
+  renderSelectedTrip(trip) {
+    nodes.errorSection.innerHTML = `Cost: $${Number(trip.tripCost).toFixed(2)}`;
   },
 
   renderTotalSpentThisYear(traveler) {
