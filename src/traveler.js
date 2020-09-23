@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 class Traveler {
   constructor(travelerData) {
     this.id = travelerData.id;
@@ -12,14 +14,28 @@ class Traveler {
         this.tripsThisYear.push(trip);
       }
     });
-    return this.tripsThisYear.reduce((totalSpent, currentTrip) => {
-      let currentDestination = this.allDestinations.find(destination => {
-        return destination.id === currentTrip.destinationID;
-      });
-      let totalFlightCost = currentTrip.travelers * currentDestination.estimatedFlightCostPerPerson;
-      let totalLodgingCost = currentTrip.duration * currentDestination.estimatedLodgingCostPerDay;
-      return totalSpent + ((totalFlightCost + totalLodgingCost) * 1.1);
+    let rawTotalSpent = this.tripsThisYear.reduce((totalSpent, currentTrip) => {
+      return totalSpent + +(currentTrip.tripCost);
     }, 0);
+    return Number(rawTotalSpent).toFixed(2);
+  }
+
+  organizeTripsByDate() {
+    this.trips.sort((tripA, tripB) => {
+      let tripAComparison = 0;
+      let tripBComparison = 1;
+      if (moment(tripB.date, "YYYY-MM-DD").isBefore(tripA.date)) {
+        tripAComparison = 2;
+      }
+      return tripAComparison - tripBComparison;
+    });
+  }
+
+  getUserTrips(allTrips, allDestinations) {
+    this.trips = allTrips.filter(trip => {
+      return trip.userID === this.id;
+    });
+    this.allDestinations = allDestinations;
   }
 }
 
