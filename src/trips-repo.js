@@ -4,9 +4,9 @@ class TripsRepo {
     this.instantiations = []
   }
 
-  generateInstantiations(classType) {
+  generateInstantiations(ClassType) {
     this.instantiations = this.data.map(element => {
-      let newInstantiation = new classType(element);
+      let newInstantiation = new ClassType(element);
       return newInstantiation;
     });
   }

@@ -96,7 +96,7 @@ describe('Traveler', () => {
 
   it('should be able to get user trips', () => {
     traveler1.getUserTrips(tripsData, allDestinations)
-    expect(traveler1.trips).to.deep.equal([tripsData[0],tripsData[1]]);
+    expect(traveler1.trips).to.deep.equal([tripsData[0], tripsData[1]]);
   });
 
   it('should be able to organize trips by date', () => {
