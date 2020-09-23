@@ -77,6 +77,48 @@ let fetcher = {
           .catch(err => console.log('Fetch error: ', err))
       })
       .catch(err => console.log('Fetch error: ', err))
+  },
+
+  generatePostInit(userID, nodes, selectedDestination) {
+    return {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: (allTrips.trips.length + 1), 
+        userID, 
+        destinationID: selectedDestination, 
+        travelers: parseInt(nodes.travelerQuantitySelection.value),
+        date: nodes.startDateInput.value,
+        duration: parseInt(nodes.durationSelection.value), 
+        status: 'pending', 
+        suggestedActivities: []
+      })
+    }
+  },
+
+  getselectedTrip(nodes, userID, selectedDestination) {
+    fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/destinations/destinations')
+      .then(response => response.json())
+      .then(data => {
+        allDestinations = new DestinationsRepo(data.destinations);
+        allDestinations.generateInstantiations(Destination)
+        let selectedTripData = {
+          id: 0,
+          userID: userID,
+          destinationID: selectedDestination,
+          travelers: nodes.travelerQuantitySelection.value,
+          date: nodes.startDateInput.value,
+          duration: nodes.durationSelection.value,
+          status: "pending",
+          suggestedActivities: []
+        }
+        let trip = new Trip(selectedTripData)
+        trip.getTripCost(allDestinations.instantiations)
+        domUpdates.renderSelectedTrip(trip);
+      })
+      .catch(err => console.log('Fetch error: ', err))
   }
 }
 
