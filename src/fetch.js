@@ -106,7 +106,7 @@ let fetcher = {
         allDestinations.generateInstantiations(Destination)
         let selectedTripData = {
           id: 0,
-          userID: userID,
+          userID,
           destinationID: selectedDestination,
           travelers: nodes.travelerQuantitySelection.value,
           date: nodes.startDateInput.value,

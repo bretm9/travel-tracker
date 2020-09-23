@@ -1,5 +1,3 @@
-import DestinationsRepo from "./destinations-repo";
-
 class Trip {
   constructor(tripData) {
     this.id = tripData.id;
@@ -13,7 +11,6 @@ class Trip {
   }
   
   getTripCost(allDestinations) {
-    console.log(allDestinations)
     let currentDestination = allDestinations.find(destination => {
       return destination.id === this.destinationID;
     });
