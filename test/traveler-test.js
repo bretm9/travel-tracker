@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 import Traveler from '../src/traveler';
 
-let traveler1Data, traveler1;
+let traveler1Data, traveler1, allDestinations, tripsData;
 
 describe('Traveler', () => {
   beforeEach(() => {
@@ -14,30 +14,31 @@ describe('Traveler', () => {
     }
 
     traveler1 = new Traveler(traveler1Data);
-    traveler1.trips = [
+
+    tripsData = [
       {
-        "id": 1,
-        "userID": 1,
-        "destinationID": 1,
-        "travelers": 1,
-        "date": "2020/09/16",
-        "duration": 1,
-        "status": "approved",
-        "suggestedActivities": []
+        id: 1,
+        userID: 1,
+        destinationID: 1,
+        travelers: 1,
+        date: "2020/05/05",
+        duration: 2,
+        status: "pending",
+        suggestedActivities: []
       },
       {
-        "id": 2,
-        "userID": 1,
-        "destinationID": 2,
-        "travelers": 2,
-        "date": "2020/05/01",
-        "duration": 2,
-        "status": "approved",
-        "suggestedActivities": []
+        id: 2,
+        userID: 3,
+        destinationID: 1,
+        travelers: 3,
+        date: "2020/05/06",
+        duration: 1,
+        status: "pending",
+        suggestedActivities: []
       }
-    ];
-
-    traveler1.allDestinations = [
+    ]
+    
+    allDestinations = [
       {
         "id": 1,
         "destination": "Lima, Peru",
@@ -79,5 +80,11 @@ describe('Traveler', () => {
 
   it('should be able to get total money spent this year', () => {
     expect(traveler1.getTotalSpentThisYear()).to.equal(33);
+  });
+
+  it('should be able to get user trips', () => {
+
+    traveler1.getUserTrips(tripsData, allDestinations)
+    expect(traveler1.trips).to.deep.equal([tripsData[0]]);
   });
 });

@@ -19,6 +19,13 @@ class Traveler {
     }, 0);
     return Number(rawTotalSpent).toFixed(2);
   }
+
+  getUserTrips(allTrips, allDestinations) {
+    this.trips = allTrips.filter(trip => {
+      return trip.userID === this.id;
+    });
+    this.allDestinations = allDestinations;
+  }
 }
 
 export default Traveler;
