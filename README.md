@@ -6,23 +6,22 @@
 ## Contents
 1. [Overview and Goals](#overview)
 1. [Technologies](#technologies)
-1. [Design](#design)
 1. [Challenges](#challenges)
 1. [Successes](#successes)
 ---
 
 ## Overview
-We are Front-End students at the Turing School of Software and Design. This project was our paired project for Module 2, and was built with a focus on learning how to use object and array prototype methods to perform data manipulation on large datasets.
+This was the final project for Module 2 at Turing School of Software and Design. This app acted as a culmination of everything I had learned in the module. Iterator methods, fetch requests, SASS and proper test-driven-design were all utilized in this application.
 
 ### Abstract
-This app is an activity tracker that offers a look into the user's health data for a given week. It displays activity, hydration, and sleep data. There are in depth insights for the current day, as well as several graphs visualizing weekly data. There is also a section to vew the global average activity of all users for the current day. 
+This app is an a travel agency website, that allows a user to choose from a selection of locations and request a trip. Options for the trip include the date, the quantity of travelers, and the duration of the trip.
 
 ### Goals
 
-* Gaining a better understanding of ES6 and test-driven-design. 
-* Learning to translate original composition into a website
-* Getting comfortable with array prototype methods
-* Working with large datasets
+* Gaining a better understanding fetch, and seperating functionality into their own files.
+* Learning to build a website from the ground up that can interact with an API
+* Getting more comfortable with iterator methods in relation to API datasets
+* Updating large datasets
 
 ---
  ## Technologies
@@ -35,31 +34,19 @@ This app is an activity tracker that offers a look into the user's health data f
   - Lint
   - Git
 
-> [Back to the top](#travel)
----
-
-## Design
-
-  Our layout Is based on common activity tracking apps. We organized categories by what we thought the most useful data was, keeping the high priority data at the top.
-  We specifically took inspiration from popular sleep apps to create a calm design, while using pops of color to keep the app lively. 
-
-> [Back to Features](#features)
-
-
-
-> [Back to Features](#features)
+> [Back to the top](#travel-tracker)
 
 ---
  ## Challenges  
  
- We faced some difficulties in importing npm packages into our project while keeping browser compatibility. Along the same lines, ran into some errors while attempting to instatiate data objects within data repository classes due to the way the browser compiles all the files into one global scope.
+I faced some challenges in how I approached this project. I initially didn't create class instantiations of my API objects, which made functionality and testing limited. I also found some complications in fetches depending on each other. This led to some fetch request chains that are a little messy. I hope to go back and refactor.
  
-> [Back to the top](#travel)
+> [Back to the top](#travel-tracker)
 
 ---
  ## Successes
  
-We managed to overcome the browser issues we faced and successfully import npm packages to properly manipulate our data and display nicely on the page. A big win for us was when we finally were displaying weekly data for a user's sleep data existing in a repository. This project really managed to make us to wrap our heads around how iterator methods can efficiently manipulate data.
+I'm really pround of this site! It is a good feeling to see something developed from the ground up and come out with a clean and polished product by the end. I'm especially happy with the layout, as I was able to get a pleasant and responsive site both in desktop and mobile view.
   
-> [Back to the top](#travel)
+> [Back to the top](#travel-tracker)
  ---
