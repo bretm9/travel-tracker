@@ -96,6 +96,29 @@ let fetcher = {
         suggestedActivities: []
       })
     }
+  },
+
+  getselectedTrip(nodes, userID, selectedDestination) {
+    fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/destinations/destinations')
+      .then(response => response.json())
+      .then(data => {
+        allDestinations = new DestinationsRepo(data.destinations);
+        allDestinations.generateInstantiations(Destination)
+        let selectedTripData = {
+          id: 0,
+          userID: userID,
+          destinationID: selectedDestination,
+          travelers: nodes.travelerQuantitySelection.value,
+          date: nodes.startDateInput.value,
+          duration: nodes.durationSelection.value,
+          status: "pending",
+          suggestedActivities: []
+        }
+        let trip = new Trip(selectedTripData)
+        trip.getTripCost(allDestinations.instantiations)
+        domUpdates.renderSelectedTrip(trip);
+      })
+      .catch(err => console.log('Fetch error: ', err))
   }
 }
 
