@@ -1,7 +1,8 @@
 # Travel Tracker
 
 > A Front-End Project by [Bret Merritt](https://github.com/bretm9)
-> [Link to project]()
+
+> [Link to project](https://bretm9.github.io/travel-tracker/)
 ---
 ## Contents
 1. [Overview and Goals](#overview)
