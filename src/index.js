@@ -46,25 +46,18 @@ let nodes = {
 
 let traveler, userID, selectedDestination;
 
-// Accessibility branch eventListener:
-window.addEventListener('load', () => {
-  userID = 2;
-  fetcher.getTravelerDestinations(traveler, userID, domUpdates);
-});
-
 checkPriceButton.addEventListener('click', () => {
   selectTrip();
 })
 
-
-// loginButton.addEventListener('click', () => {
-//   if (login(userInputUsername.value, userInputPassword.value)) {
-//     fetcher.getTravelerDestinations(traveler, userID, domUpdates);
-//     domUpdates.toggleMainView();
-//   } else {
-//     loginFooter.classList.remove('hidden');
-//   }
-// });
+loginButton.addEventListener('click', () => {
+  if (login(userInputUsername.value, userInputPassword.value)) {
+    fetcher.getTravelerDestinations(traveler, userID, domUpdates);
+    domUpdates.toggleMainView();
+  } else {
+    loginFooter.classList.remove('hidden');
+  }
+});
 
 window.addEventListener('click', selectDestination);
 
@@ -97,18 +90,18 @@ function inputCorrectFormat(input) {
   return moment(input.value, 'YYYY/MM/DD', true).isValid()
 }
 
-// function login(username, password) {
-//   let splitUsername = username.split('traveler');
-//   if (splitUsername[0] === ''
-//     && parseInt(splitUsername[1]) > 0 
-//     && parseInt(splitUsername[1]) <= 50 
-//     && password === 'travel2020'
-//   ) {
-//     userID = parseInt(splitUsername[1]);
-//     return true;
-//   }
-//   loginFooter.classList.remove('hidden');
-//   return false;
-// }
+function login(username, password) {
+  let splitUsername = username.split('traveler');
+  if (splitUsername[0] === ''
+    && parseInt(splitUsername[1]) > 0 
+    && parseInt(splitUsername[1]) <= 50 
+    && password === 'travel2020'
+  ) {
+    userID = parseInt(splitUsername[1]);
+    return true;
+  }
+  loginFooter.classList.remove('hidden');
+  return false;
+}
 
 export default nodes;
